@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\AddUser;
+use app\models\Login;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -84,15 +85,26 @@ class SiteController extends Controller
             ]);
         }
     }
-//    public function actionShow(){
-//        $model=User::find()->all();
-//        /**
-//         * @var User $try
-//         */
-//        foreach ($model as $try){
-//            echo $try->nickname;
-//        }
-//    }
+    public function actionLog(){
+        $model=new Login();
+        if($model->load(Yii::$app->request->post())&&$model->login()){
+           return $this->goHome();
+        }
+        else{
+            return $this->render('log',[
+                'model'=>$model
+            ]);
+        }
+    }
+    public function bla(){
+        $model=User::findOne([
+            'nickname'=>'Nick'
+        ]);
+        echo $model->nickname;
+        echo "      ";
+        echo $model->password;
+    }
+
     public function actionLogin()
     {
     }
