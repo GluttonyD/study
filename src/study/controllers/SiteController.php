@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\AddUser;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,6 +10,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\User;
 
 class SiteController extends Controller
 {
@@ -69,21 +71,30 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
+
+
+    public function actionAdd(){
+        $user=new AddUser();
+        if($user->load(Yii::$app->request->post())&&$user->addUser()){
             return $this->goHome();
         }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        else{
+           return $this->render('addUser',[
+                'model'=>$user
+            ]);
         }
-
-        $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+    }
+//    public function actionShow(){
+//        $model=User::find()->all();
+//        /**
+//         * @var User $try
+//         */
+//        foreach ($model as $try){
+//            echo $try->nickname;
+//        }
+//    }
+    public function actionLogin()
+    {
     }
 
     /**
