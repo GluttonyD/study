@@ -2,10 +2,14 @@
 
 namespace app\controllers;
 
+use app\models\AddToTable;
+use app\models\AddToTable2;
 use app\models\AddUser;
 use app\models\Login;
+use app\models\Table;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -96,19 +100,23 @@ class SiteController extends Controller
             ]);
         }
     }
-    public function bla(){
-        $model=User::findOne([
-            'nickname'=>'Nick'
-        ]);
-        echo $model->nickname;
-        echo "      ";
-        echo $model->password;
+    public function actionTable($row=null,$col=null,$modify_id=null){
+        $model = new AddToTable($modify_id, $row, $col);
+        if($model->load(Yii::$app->request->post())&& $model->add($modify_id)){
+            return $this->goHome();
+        }
+        else{
+                return $this->render('table_modify', [
+                    'model' => $model,
+                    'id' => $modify_id,
+                    'row'=>$row,
+                    'col'=>$col
+                ]);
+        }
     }
-
-    public function actionLogin()
-    {
-    }
-
+   public function actionCount(){
+            return $this->render('count');
+   }
     /**
      * Logout action.
      *

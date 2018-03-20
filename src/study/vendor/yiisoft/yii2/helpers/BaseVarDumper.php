@@ -33,7 +33,7 @@ class BaseVarDumper
      * @param int $depth maximum depth that the dumper should go into the variable. Defaults to 10.
      * @param bool $highlight whether the result should be syntax-highlighted
      */
-    public static function dump($var, $depth = 10, $highlight = false)
+    public static function dump($var, $depth = 10, $highlight = true)
     {
         echo static::dumpAsString($var, $depth, $highlight);
     }
