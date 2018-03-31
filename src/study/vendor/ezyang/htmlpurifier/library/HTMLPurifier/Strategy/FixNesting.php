@@ -164,7 +164,7 @@ class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
         }
 
         //####################################################################//
-        // Post-processing
+        // PostView-processing
 
         // remove context variables
         $context->destroy('IsInline');

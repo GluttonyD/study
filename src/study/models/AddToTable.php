@@ -50,10 +50,22 @@ class AddToTable extends Model
     {
         return [
             ['data','safe'],
-            ['row_id','integer']
+            ['row_id','integer'],
+            [['data'],'allFilled']
         ];
     }
 
+    public function allFilled($attribute,$params){
+        foreach ($this->data as $row_id => $row) {
+            foreach ($row as $column_id => $cell) {
+                if($cell==null){
+                    $this->addError($attribute,'Все ячейки должны быть заполнены');
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     public function addSize($row,$col){
         $this->col_count=$col;
         $this->row_count=$row;

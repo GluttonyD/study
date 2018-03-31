@@ -10,6 +10,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\VarDumper;
 
 class Login extends Model
 {
@@ -30,10 +31,11 @@ class Login extends Model
             /**
              * @var User $user
              */
-            $user = User::findOne(['nickname' => $this->nickname]);
+            $user = User::find()->where(['nickname' => $this->nickname])->one();
             if ($user != null) {
                 if ($this->password === $user->password) {
-                    return Yii::$app->user->login($user);
+                    return Yii::$app->user->login($user,3600*24*30);
+//                    return true;
                 }
             }
 

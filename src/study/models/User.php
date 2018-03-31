@@ -17,7 +17,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
 
     public static function findIdentity($id){
-
+        return static::findOne($id);
     }
     public static function findIdentityByAccessToken($token, $type = null){
 
@@ -25,7 +25,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
     public function getId()
     {
-        // TODO: Implement getId() method.
+        return $this->id;
     }
     public function validateAuthKey($authKey)
     {

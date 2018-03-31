@@ -23,7 +23,7 @@ use yii\di\Instance;
  *
  * ```php
  * $provider = new ActiveDataProvider([
- *     'query' => Post::find(),
+ *     'query' => PostView::find(),
  *     'pagination' => [
  *         'pageSize' => 20,
  *     ],

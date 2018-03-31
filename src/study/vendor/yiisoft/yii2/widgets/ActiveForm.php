@@ -377,7 +377,7 @@ class ActiveForm extends Widget
      * to an AJAX validation request:
      *
      * ```php
-     * $model = new Post;
+     * $model = new PostView;
      * $model->load(Yii::$app->request->post());
      * if (Yii::$app->request->isAjax) {
      *     Yii::$app->response->format = Response::FORMAT_JSON;

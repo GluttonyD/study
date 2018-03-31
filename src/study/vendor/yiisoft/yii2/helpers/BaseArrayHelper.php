@@ -29,7 +29,7 @@ class BaseArrayHelper
      *
      * ```php
      * [
-     *     'app\models\Post' => [
+     *     'app\models\PostView' => [
      *         'id',
      *         'title',
      *         // the key name in array result => property name

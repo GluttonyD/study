@@ -16,8 +16,8 @@ use yii\helpers\Html;
 /**
  * Breadcrumbs displays a list of links indicating the position of the current page in the whole site hierarchy.
  *
- * For example, breadcrumbs like "Home / Sample Post / Edit" means the user is viewing an edit page
- * for the "Sample Post". He can click on "Sample Post" to view that page, or he can click on "Home"
+ * For example, breadcrumbs like "Home / Sample PostView / Edit" means the user is viewing an edit page
+ * for the "Sample PostView". He can click on "Sample PostView" to view that page, or he can click on "Home"
  * to return to the homepage.
  *
  * To use Breadcrumbs, you need to configure its [[links]] property, which specifies the links to be displayed. For example,
@@ -28,11 +28,11 @@ use yii\helpers\Html;
  *     'itemTemplate' => "<li><i>{link}</i></li>\n", // template for all links
  *     'links' => [
  *         [
- *             'label' => 'Post Category',
+ *             'label' => 'PostView Category',
  *             'url' => ['post-category/view', 'id' => 10],
  *             'template' => "<li><b>{link}</b></li>\n", // template for this link only
  *         ],
- *         ['label' => 'Sample Post', 'url' => ['post/edit', 'id' => 1]],
+ *         ['label' => 'Sample PostView', 'url' => ['post/edit', 'id' => 1]],
  *         'Edit',
  *     ],
  * ]);

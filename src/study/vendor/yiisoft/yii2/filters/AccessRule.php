@@ -97,7 +97,7 @@ class AccessRule extends Component
      *         'actions' => ['update'],
      *         'roles' => ['updatePost'],
      *         'roleParams' => function($rule) {
-     *             return ['post' => Post::findOne(Yii::$app->request->get('id'))];
+     *             return ['post' => PostView::findOne(Yii::$app->request->get('id'))];
      *         },
      *     ],
      * ],

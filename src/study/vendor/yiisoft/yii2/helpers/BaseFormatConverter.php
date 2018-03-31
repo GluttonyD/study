@@ -293,9 +293,9 @@ class BaseFormatConverter
             'y' => 'yy',    // A two digit representation of a year 	Examples: 99 or 03
             // Time
             '\a' => "'a'",
-            'a' => 'a',     // Lowercase Ante meridiem and Post meridiem, am or pm
+            'a' => 'a',     // Lowercase Ante meridiem and PostView meridiem, am or pm
             '\A' => "'A'",
-            'A' => 'a',     // Uppercase Ante meridiem and Post meridiem, AM or PM, not supported by ICU but we fallback to lowercase
+            'A' => 'a',     // Uppercase Ante meridiem and PostView meridiem, AM or PM, not supported by ICU but we fallback to lowercase
             '\B' => "'B'",
             'B' => '',      // Swatch Internet time 	000 through 999
             '\g' => "'g'",
@@ -530,8 +530,8 @@ class BaseFormatConverter
             'Y' => 'yy',    // A full numeric representation of a year, 4 digits 	Examples: 1999 or 2003
             'y' => 'y',     // A two digit representation of a year 	Examples: 99 or 03
             // Time
-            'a' => '',      // Lowercase Ante meridiem and Post meridiem, am or pm
-            'A' => '',      // Uppercase Ante meridiem and Post meridiem, AM or PM, not supported by ICU but we fallback to lowercase
+            'a' => '',      // Lowercase Ante meridiem and PostView meridiem, am or pm
+            'A' => '',      // Uppercase Ante meridiem and PostView meridiem, AM or PM, not supported by ICU but we fallback to lowercase
             'B' => '',      // Swatch Internet time 	000 through 999
             'g' => '',      // 12-hour format of an hour without leading zeros 	1 through 12
             'G' => '',      // 24-hour format of an hour without leading zeros 0 to 23h

@@ -9,7 +9,9 @@
 namespace app\controllers;
 
 
-class TestController
+use yii\web\Controller;
+
+class TestController extends Controller
 {
 
 }

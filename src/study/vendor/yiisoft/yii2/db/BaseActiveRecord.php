@@ -826,7 +826,7 @@ abstract class BaseActiveRecord extends Model implements ActiveRecordInterface
      * An example usage is as follows:
      *
      * ```php
-     * $post = Post::findOne($id);
+     * $post = PostView::findOne($id);
      * $post->updateCounters(['view_count' => 1]);
      * ```
      *

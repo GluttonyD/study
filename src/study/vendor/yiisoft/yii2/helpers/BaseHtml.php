@@ -2219,8 +2219,8 @@ class BaseHtml
      *
      * This method generates a name that can be used as the input name to collect user input
      * for the specified attribute. The name is generated according to the [[Model::formName|form name]]
-     * of the model and the given attribute name. For example, if the form name of the `Post` model
-     * is `Post`, then the input name generated for the `content` attribute would be `Post[content]`.
+     * of the model and the given attribute name. For example, if the form name of the `PostView` model
+     * is `PostView`, then the input name generated for the `content` attribute would be `PostView[content]`.
      *
      * See [[getAttributeName()]] for explanation of attribute expression.
      *
@@ -2251,7 +2251,7 @@ class BaseHtml
      * Generates an appropriate input ID for the specified attribute name or expression.
      *
      * This method converts the result [[getInputName()]] into a valid input ID.
-     * For example, if [[getInputName()]] returns `Post[content]`, this method will return `post-content`.
+     * For example, if [[getInputName()]] returns `PostView[content]`, this method will return `post-content`.
      * @param Model $model the model object
      * @param string $attribute the attribute name or expression. See [[getAttributeName()]] for explanation of attribute expression.
      * @return string the generated input ID

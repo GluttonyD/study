@@ -76,7 +76,7 @@ class ConfigBuilder
      * ```php
      * <?php
      * $this->user = new User;
-     * $this->post = new Post;
+     * $this->post = new PostView;
      * $this->tag = new Tag;
      *
      * // turn on deep cloning by default
@@ -116,7 +116,7 @@ class ConfigBuilder
      * ```php
      * <?php
      * $this->user = new User;
-     * $this->post = new Post;
+     * $this->post = new PostView;
      * $this->tag = new Tag;
      *
      * // turn off deep cloning by default

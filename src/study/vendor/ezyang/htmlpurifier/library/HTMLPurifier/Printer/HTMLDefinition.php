@@ -88,7 +88,7 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
         $ret .= $this->end('tr');
 
         $ret .= $this->start('tr');
-        $ret .= $this->element('th', 'Post-AttrTransform');
+        $ret .= $this->element('th', 'PostView-AttrTransform');
         $ret .= $this->element('td', $this->listifyObjectList($def->info_attr_transform_post));
         $ret .= $this->end('tr');
 
@@ -151,7 +151,7 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
             }
             if (!empty($def->attr_transform_post)) {
                 $ret .= $this->start('tr');
-                $ret .= $this->element('th', 'Post-AttrTransform');
+                $ret .= $this->element('th', 'PostView-AttrTransform');
                 $ret .= $this->element('td', $this->listifyObjectList($def->attr_transform_post));
                 $ret .= $this->end('tr');
             }

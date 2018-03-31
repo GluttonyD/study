@@ -102,7 +102,7 @@ class UploadedFile extends BaseObject
 
     /**
      * Returns an uploaded file according to the given file input name.
-     * The name can be a plain string or a string like an array element (e.g. 'Post[imageFile]', or 'Post[0][imageFile]').
+     * The name can be a plain string or a string like an array element (e.g. 'PostView[imageFile]', or 'PostView[0][imageFile]').
      * @param string $name the name of the file input field.
      * @return null|UploadedFile the instance of the uploaded file.
      * Null is returned if no file is uploaded for the specified name.

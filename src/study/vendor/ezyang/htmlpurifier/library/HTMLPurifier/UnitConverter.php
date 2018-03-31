@@ -166,7 +166,7 @@ class HTMLPurifier_UnitConverter
 
         }
 
-        // Post-condition: $unit == $to_unit
+        // PostView-condition: $unit == $to_unit
         if ($unit !== $to_unit) {
             return false;
         }

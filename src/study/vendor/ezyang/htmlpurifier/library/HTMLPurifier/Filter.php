@@ -41,7 +41,7 @@ class HTMLPurifier_Filter
     }
 
     /**
-     * Post-processor function, handles HTML after HTML Purifier
+     * PostView-processor function, handles HTML after HTML Purifier
      * @param string $html
      * @param HTMLPurifier_Config $config
      * @param HTMLPurifier_Context $context

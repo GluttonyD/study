@@ -888,7 +888,7 @@ interface Web
      *
      * ``` php
      * <?php
-     * $I->seeInTitle('Blog - Post #1');
+     * $I->seeInTitle('Blog - PostView #1');
      * ?>
      * ```
      *

@@ -2,10 +2,17 @@
 
 namespace app\controllers;
 
+use app\models\AddBlogNote;
+use app\models\PostView;
+use app\models\AddLink;
+use app\models\AddNote;
+use app\models\AddTag;
 use app\models\AddToTable;
 use app\models\AddToTable2;
 use app\models\AddUser;
 use app\models\Login;
+use app\models\Note;
+use app\models\Notes;
 use app\models\Table;
 use Yii;
 use yii\filters\AccessControl;
@@ -78,45 +85,90 @@ class SiteController extends Controller
      */
 
 
-    public function actionAdd(){
-        $user=new AddUser();
-        if($user->load(Yii::$app->request->post())&&$user->addUser()){
+    public function actionAdd()
+    {
+        $user = new AddUser();
+        if ($user->load(Yii::$app->request->post()) && $user->addUser()) {
             return $this->goHome();
-        }
-        else{
-           return $this->render('addUser',[
-                'model'=>$user
+        } else {
+            return $this->render('addUser', [
+                'model' => $user
             ]);
         }
     }
-    public function actionLog(){
-        $model=new Login();
-        if($model->load(Yii::$app->request->post())&&$model->login()){
-           return $this->goHome();
-        }
-        else{
-            return $this->render('log',[
-                'model'=>$model
+
+    public function actionLog()
+    {
+        $model = new Login();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            echo Yii::$app->user->getId();
+//            echo 'suck';
+//            VarDumper::dump(Yii::$app->user);
+            return $this->goHome();
+        } else {
+            return $this->render('log', [
+                'model' => $model
             ]);
         }
     }
-    public function actionTable($row=null,$col=null,$modify_id=null){
+
+
+    public function actionTable($row = null, $col = null, $modify_id = null)
+    {
         $model = new AddToTable($modify_id, $row, $col);
-        if($model->load(Yii::$app->request->post())&& $model->add($modify_id)){
-            return $this->goHome();
+        $success = false;
+        if ($model->load(Yii::$app->request->post()) && $model->validate()&& $model->add($modify_id)) {
+            $success = true;
         }
-        else{
-                return $this->render('table_modify', [
-                    'model' => $model,
-                    'id' => $modify_id,
-                    'row'=>$row,
-                    'col'=>$col
-                ]);
-        }
+        return $this->render('table_modify', [
+            'model' => $model,
+            'id' => $modify_id,
+            'row' => $row,
+            'col' => $col,
+            'success' => $success
+        ]);
+
     }
-   public function actionCount(){
-            return $this->render('count');
-   }
+
+
+    public function actionCount()
+    {
+        return $this->render('count');
+    }
+
+    public function actionNote(){
+        $note=new AddNote();
+//        $link=new AddLink();
+        $success=false;
+        if($note->load(Yii::$app->request->post())&& $note->insert()){
+            //VarDumper::dump($note);
+//            $link->addLink($note->id,$note->tags);
+            $success=true;
+        }
+        return $this->render('add_note',[
+            'note'=>$note,
+            'success'=>$success
+        ]);
+    }
+
+    public function actionShownotes(){
+//        $notes=Notes::find()->where(['id'=>5])->with(['tags'])->all();
+//        $notes=Notes::find()->where(['id'=>5])->with(['tags'])->all();
+        $notes=Notes::find()->with(['bigTags'])->all();
+
+        /**
+         * @var Notes[] $notes
+         */
+        $tag_id=10;
+        foreach ($notes as $note){
+            VarDumper::dump($note->bigTags);
+        }
+        /**
+         * @var Notes $item
+         */
+
+//        }
+    }
     /**
      * Logout action.
      *

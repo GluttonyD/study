@@ -25,7 +25,7 @@ class AddressTest extends \PHPUnit_Framework_TestCase
         $main = '[0-9]{5}';
         $pattern = "/^($main)|($main-[0-9]{3})+$/";
         $postcode = $this->faker->postcode;
-        $this->assertRegExp($pattern, $postcode, 'Post code ' . $postcode . ' is wrong!');
+        $this->assertRegExp($pattern, $postcode, 'PostView code ' . $postcode . ' is wrong!');
     }
 
     public function testEmptySuffixes()

@@ -88,7 +88,7 @@ class HTMLPurifier_AttrDef_URI extends HTMLPurifier_AttrDef
                 break;
             }
 
-            // Post chained filtering
+            // PostView chained filtering
             $result = $uri_def->postFilter($uri, $config, $context);
             if (!$result) {
                 break;

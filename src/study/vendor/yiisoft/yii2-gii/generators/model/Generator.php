@@ -122,7 +122,7 @@ class Generator extends \yii\gii\Generator
                 The table name may end with asterisk to match multiple table names, e.g. <code>tbl_*</code>
                 will match tables who name starts with <code>tbl_</code>. In this case, multiple ActiveRecord classes
                 will be generated, one for each matching table name; and the class names will be generated from
-                the matching characters. For example, table <code>tbl_post</code> will generate <code>Post</code>
+                the matching characters. For example, table <code>tbl_post</code> will generate <code>PostView</code>
                 class.',
             'modelClass' => 'This is the name of the ActiveRecord class to be generated. The class name should not contain
                 the namespace part as it is specified in "Namespace". You do not need to specify the class name
