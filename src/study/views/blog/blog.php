@@ -6,7 +6,7 @@
 
 $this->title="Блог";
 ?>
-<div>
+<div data-name="main">
     <a class="btn btn-primary" href="blog/add_note">Добавить пост</a>
 </div>
 <?php

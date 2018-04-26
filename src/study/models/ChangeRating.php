@@ -37,20 +37,17 @@ class ChangeRating extends Model
                 return false;
             else{
                 $marks->mark=$mark;
-                self::recalculateRating($object_type,$object_id,$mark,true);
                 $marks->save();
-                return true;
+                return self::recalculateRating($object_type,$object_id,$mark,true);;
             }
         }
         $marks=new Like();
         $marks->mark=$mark;
-        self::recalculateRating($object_type,$object_id,$mark,false);
-        $marks->save();
         $marks->user_id=Yii::$app->user->getId();
         $marks->object_id=$object_id;
         $marks->object_type=$object_type;
         $marks->save();
-        return true;
+        return self::recalculateRating($object_type,$object_id,$mark,false);;
     }
 
     private static function recalculateRating($object_type,$object_id,$mark,$isChange){
@@ -64,6 +61,7 @@ class ChangeRating extends Model
                     $object->rate++;
                 $object->rate++;
                 $object->save();
+                return $object->rate;
             }
             if ($object_type == 0) {
                 /**
@@ -74,6 +72,7 @@ class ChangeRating extends Model
                     $object->rate++;
                 $object->rate++;
                 $object->save();
+                return $object->rate;
             }
         }
         else{
@@ -86,6 +85,7 @@ class ChangeRating extends Model
                     $object->rate--;
                 $object->rate--;
                 $object->save();
+                return $object->rate;
             }
             if($object_type==0){
                 /**
@@ -96,7 +96,9 @@ class ChangeRating extends Model
                     $object->rate--;
                 $object->rate--;
                 $object->save();
+                return $object->rate;
             }
         }
+        return false;
     }
 }
